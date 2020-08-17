@@ -1,0 +1,15 @@
+---
+- hosts: bb-app-test
+  gather_facts: no
+  become: yes
+  become_user: root
+  become_method: su
+  remote_user:  root 
+
+  tasks:
+
+  - name: Add the user 'xx' with a specific uid and a primary group of 'xx'
+    user:
+      name: ucmdb
+      state: present
+      group: root

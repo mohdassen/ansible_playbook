@@ -1,0 +1,10 @@
+--- # this is a controll for bb-app-dev
+- hosts: '{{groupname}}'
+  remote_user: root
+  connection: ssh
+  gather_facts: yes            
+  tasks:
+   - name: ftp yum-cron
+     copy :
+      src: '{{filesrc}}'
+      dest: '{{filedes}}'

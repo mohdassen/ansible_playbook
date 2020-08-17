@@ -1,0 +1,9 @@
+﻿---
+- hosts: FNarchive
+- include: solaris.yml
+  when: ansible_os_family == 'Solaris'
+
+- include: non-solaris.yml
+  when: ansible_os_family != 'Solaris'
+
+- include: ssh.yml

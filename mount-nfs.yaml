@@ -1,0 +1,15 @@
+--- # this is a controll for bb-app-dev
+- hosts: bann9
+  remote_user: root
+  become : yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+            
+  tasks:
+  - name: mount u02
+    mount :
+      path: /u02
+      src: sc01-h1-storIB:/export/u02
+      fstype: nfs
+      state: mounted

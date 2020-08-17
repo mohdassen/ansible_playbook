@@ -1,0 +1,13 @@
+---
+- hosts: bb-app-prd
+  gather_facts: no
+  become: yes
+  become_user: root
+  become_method: su
+  remote_user:  root
+  tasks:
+  - lineinfile:
+        path: /home/bbuser/.bashrc
+        regexp: 'ulimit -Hn 5000'
+        line: '#'
+        #line: '* hard nofile 65536'

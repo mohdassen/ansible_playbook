@@ -1,0 +1,18 @@
+--- # this is a controll for bb-app-dev
+- hosts: bb-app-dev
+  remote_user: ansible
+  become : yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  vars:
+    username: bbuser
+            
+  tasks:
+  - name: mount CDROM
+    mount :
+      path: /mnt/dvd
+      src: /dev/sr0
+      fstype: iso9660
+      opts: ro,noauto
+      state: mounted

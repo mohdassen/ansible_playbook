@@ -1,0 +1,12 @@
+---
+- hosts: bb-app-prd
+  gather_facts: no
+  become: yes
+  become_user: root
+  become_method: su
+  remote_user:  root
+  tasks:
+  - lineinfile:
+        path: /etc/sudoers
+        regexp: '^%wheel'
+        line: 'bbuser ALL=(ALL) ALL'

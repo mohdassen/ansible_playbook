@@ -1,0 +1,9 @@
+---
+#KERNEL or NOREBOOT
+- name: Patching the linux system using patching roles  
+  hosts: bb_app_test  
+  become: true  
+  vars:  
+   Patching_type: "NOREBOOT" 
+  roles:  
+    - ataha.linux_patching

@@ -1,0 +1,12 @@
+---
+- hosts: '{{groupname}}'
+  gather_facts: no
+  become: yes
+  become_user: root
+  become_method: su
+  remote_user:  root
+  tasks:
+  - lineinfile:
+        path: '{{path}}'
+        regexp: '{{exp}}'
+        line: '{{line}}'

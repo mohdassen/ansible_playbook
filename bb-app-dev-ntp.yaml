@@ -1,0 +1,16 @@
+--- # this is a controll for bb-app-dev
+- hosts: bb-app-dev
+  remote_user: ansible
+  become : yes
+  become_method: sudo
+  connection: ssh
+  gather_facts: yes
+  tasks:
+  - name: install ntp
+    template : src=ntp.conf dest=/etc/ntp.conf
+    notify:
+       - restart ntp
+
+  handlers:
+   - name: restart ntp
+     service: name=ntpd state=restarted

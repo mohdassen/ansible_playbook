@@ -1,0 +1,10 @@
+---
+- hosts: bb-app-prd
+  connection: ssh
+  gather_facts: no
+  remote_user: root
+  tasks:
+  - name: Update ucmdb user's Password
+    user: 
+      name: ucmdb
+      password: $6$Ucmdbimu2020$7gYGrOOSdQWBVJOZ/mKeOrYO32GrDimOybiguhVkwpAo3rr7puZSDZIK5sTkybVwZbHR1dCKc81PvFsztnywK/
